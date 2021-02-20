@@ -3,3 +3,6 @@ bootsector.bin: boot/bootsector.asm
 
 run: bootsector.bin
 	qemu-system-i386 bootsector.bin --curses
+
+clean: *.bin
+	rm *.bin

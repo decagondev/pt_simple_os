@@ -1,0 +1,3 @@
+/*
+    this will be the c entry point of our kernel
+*/
