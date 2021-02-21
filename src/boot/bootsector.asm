@@ -9,6 +9,10 @@ jmp $
 ; include files
 ; printing to the screen
 %include "boot/printing.asm"
+%include "boot/disk_tools.asm"
+%include "boot/gdt.asm"
+; TODO: include a 32 Bit printing file here
+%include "boot/switch_pm.asm"
 
 ; data
 MESSAGE_BOOT db 'Booting Lambda OS...', 0

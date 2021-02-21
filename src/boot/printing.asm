@@ -33,3 +33,5 @@ print_newline:
 
     popa ; restore all of the cpu register state
     ret
+
+; TODO: write a print_hex function for debugging

@@ -1,8 +1,12 @@
+# $@ = target file
+# $< = first dep
+# $^ = all deps
+
 bootsector.bin: boot/bootsector.asm
-	nasm -f bin boot/bootsector.asm -o bootsector.bin
+	nasm -f bin $< -o $@
 
 run: bootsector.bin
-	qemu-system-i386 bootsector.bin --curses
+	qemu-system-i386 $< --curses
 
 clean: *.bin
 	rm *.bin
