@@ -13,6 +13,9 @@ call println
 
 call load_kernel
 
+call pm_start
+
+
 
 
 
@@ -26,7 +29,7 @@ jmp $
 %include "boot/switch_pm.asm"
 
 
-; TODO: load kernel function
+; load kernel function
 [bits 16]
 load_kernel:
     pusha
@@ -46,7 +49,9 @@ load_kernel:
 
 [bits 32]
 BEGIN_PM:
-    ; TODO: fill in logic here...
+    mov ebx, MESSAGE_PM
+    call print_pm
+    jmp $
 
 ; data
 ; TODO: make room to hold the boot drive address
@@ -58,4 +63,4 @@ MESSAGE_KERNEL_LOAD db 'Loading Kernel in to Memory', 0
 times 510 - ($ - $$) db 0
 dw 0xaa55
 
-times 10240 db 0 ; TODO: remove this when we have a kernel
+times 10240 db 0
