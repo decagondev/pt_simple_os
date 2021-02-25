@@ -8,3 +8,4 @@ here we will structure a simple operating system project to help show how you mi
 - Byte Size Dev [*32Bit Mode & Makefile Updates*](https://youtu.be/-IN4jD67weo) 
 - Byte Size Dev [*Lets Get Our C Kernel Started!*](https://youtu.be/cN26L6bPjhg) 
 - Byte Size Dev [*Lets Get RUSTY!*](https://youtu.be/QG2_fVJYx44) 
+- Byte Size Dev [*Lets Get Stringy! Using C++*](https://youtu.be/TCK6Cewg3S4) 
