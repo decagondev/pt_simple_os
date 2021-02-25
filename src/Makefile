@@ -3,8 +3,11 @@
 # $^ = all deps
 
 # constants
-CC = gcc
-GDB = gdb
+CC = i686-elf-gcc
+LD = i686-elf-ld
+LDFLAGS = -Ttext 0x1000
+LDFORMAT = --oformat binary
+GDB = i686-elf-gdb
 
 CFLAGS = -g -ffreestanding
 
@@ -15,8 +18,17 @@ kernel.o: kernel/kernel.c
 	# call a croos compiler with some options outputing the kernel.o file
 	${CC} ${CFLAGS} -c $< -o $@
 
-run: bootsector.bin
+kernel_entry.o: boot/kernel_entry.asm
+	nasm -f elf $< -o $@
+
+kernel.bin: kernel_entry.o kernel.o
+	${LD} -o $@ ${LDFLAGS} $^ ${LDFORMAT}
+
+os.bin: bootsector.bin kernel.bin
+	cat $^ > $@
+
+run: os.bin
 	qemu-system-i386 $< --curses
 
-clean: *.bin
-	rm *.bin
+clean: *.bin *.o
+	rm *.bin *.o

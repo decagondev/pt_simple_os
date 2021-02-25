@@ -3,6 +3,7 @@
 ; constants
 KERNEL_OFFSET equ 0x1000 ; TODO: use this value in the linking stage
 
+mov [BOOT_DRIVE], dl; store bootdrive from dl
 ; setup a stack
 mov bp, 0x9000
 mov sp, bp
@@ -10,15 +11,8 @@ mov sp, bp
 ; entry point
 mov bx, MESSAGE_BOOT
 call println
-
 call load_kernel
-
 call pm_start
-
-
-
-
-
 jmp $
 
 ; include files
@@ -33,13 +27,13 @@ jmp $
 [bits 16]
 load_kernel:
     pusha
-    ; TODO: fill in more logic here...
+   
     mov bx, MESSAGE_KERNEL_LOAD
     call println
 
     mov bx, KERNEL_OFFSET ; read from disk and store in 0x1000
-    mov dh, 16 ; load lots of sectors in to memory
-    ; TODO: get the boot drive in to dl
+    mov dh, 1
+    mov dl, [BOOT_DRIVE]
     call disk_load
     popa
     ret
@@ -51,10 +45,11 @@ load_kernel:
 BEGIN_PM:
     mov ebx, MESSAGE_PM
     call print_pm
+    call KERNEL_OFFSET
     jmp $
 
 ; data
-; TODO: make room to hold the boot drive address
+BOOT_DRIVE db 0
 MESSAGE_BOOT db 'Booting Lambda OS...', 0
 MESSAGE_PM db 'Entered 32 Bit Protected Mode...', 0
 MESSAGE_KERNEL_LOAD db 'Loading Kernel in to Memory', 0
@@ -62,5 +57,3 @@ MESSAGE_KERNEL_LOAD db 'Loading Kernel in to Memory', 0
 
 times 510 - ($ - $$) db 0
 dw 0xaa55
-
-times 10240 db 0
