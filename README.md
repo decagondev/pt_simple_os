@@ -6,3 +6,4 @@ here we will structure a simple operating system project to help show how you mi
 - Byte Size Dev [*Disk Loading Function and GDT Struct*](https://youtu.be/Bn9K8LX2r-Q) 
 - Byte Size Dev [*Protected Mode Switching Setup*](https://youtu.be/jl61op-snfw) 
 - Byte Size Dev [*32Bit Mode & Makefile Updates*](https://youtu.be/-IN4jD67weo) 
+- Byte Size Dev [*Lets Get Our C Kernel Started!*](https://youtu.be/cN26L6bPjhg) 
