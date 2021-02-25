@@ -21,7 +21,10 @@ kernel.o: kernel/kernel.c
 kernel_entry.o: boot/kernel_entry.asm
 	nasm -f elf $< -o $@
 
-kernel.bin: kernel_entry.o kernel.o
+rustkern.o: kernel/rustkern.rs
+	rustc $< --emit=obj --target=i686-unknown-linux-gnu
+
+kernel.bin: kernel_entry.o kernel.o rustkern.o
 	${LD} -o $@ ${LDFLAGS} $^ ${LDFORMAT}
 
 os.bin: bootsector.bin kernel.bin
