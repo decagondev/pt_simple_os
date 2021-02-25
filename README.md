@@ -9,3 +9,4 @@ here we will structure a simple operating system project to help show how you mi
 - Byte Size Dev [*Lets Get Our C Kernel Started!*](https://youtu.be/cN26L6bPjhg) 
 - Byte Size Dev [*Lets Get RUSTY!*](https://youtu.be/QG2_fVJYx44) 
 - Byte Size Dev [*Lets Get Stringy! Using C++*](https://youtu.be/TCK6Cewg3S4) 
+- Byte Size Dev [*Back to the roots - Calling ASM function in C*](https://youtu.be/sqtQcBZ8QDw)
