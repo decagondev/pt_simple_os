@@ -16,3 +16,4 @@ Byte Size Dev [*Full Playlist*](https://www.youtube.com/playlist?list=PLrljgCnEx
 - Byte Size Dev [*Lets Get Stringy! Using C++*](https://youtu.be/TCK6Cewg3S4) 
 - Byte Size Dev [*Back to the roots - Calling ASM function in C*](https://youtu.be/sqtQcBZ8QDw)
 - Byte Size Dev [*Let's Code some Port Operations*](https://youtu.be/tI9wQXdMBck)
+- Byte Size Dev [*Fixing Typo & Add Make File Rules*](https://youtu.be/OSSdmJiAA6E)
