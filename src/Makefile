@@ -18,6 +18,10 @@ kernel.o: kernel/kernel.c
 	# call a croos compiler with some options outputing the kernel.o file
 	${CC} ${CFLAGS} -c $< -o $@
 
+sys.o: drivers/sys.c
+	# call a croos compiler with some options outputing the sys.o file
+	${CC} ${CFLAGS} -c $< -o $@
+
 kernel_entry.o: boot/kernel_entry.asm
 	nasm -f elf $< -o $@
 
@@ -27,7 +31,7 @@ rustkern.o: kernel/rustkern.rs
 stringy.o: kernel/stringy.cpp
 	i686-elf-g++ -c $< -o $@ -ffreestanding
 
-kernel.bin: kernel_entry.o kernel.o rustkern.o stringy.o
+kernel.bin: kernel_entry.o kernel.o sys.o rustkern.o stringy.o
 	${LD} -o $@ ${LDFLAGS} $^ ${LDFORMAT}
 
 os.bin: bootsector.bin kernel.bin

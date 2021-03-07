@@ -11,7 +11,7 @@ void outportb(unsigned short port, unsigned char data)
 }
 
 // implementation of outportb
-void outportb(unsigned short port, unsigned char data) 
+void outportw(unsigned short port, unsigned short data) 
 {
    // inline assembly
    // out data, port
