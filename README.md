@@ -17,3 +17,4 @@ Byte Size Dev [*Full Playlist*](https://www.youtube.com/playlist?list=PLrljgCnEx
 - Byte Size Dev [*Back to the roots - Calling ASM function in C*](https://youtu.be/sqtQcBZ8QDw)
 - Byte Size Dev [*Let's Code some Port Operations*](https://youtu.be/tI9wQXdMBck)
 - Byte Size Dev [*Fixing Typo & Add Make File Rules*](https://youtu.be/OSSdmJiAA6E)
+- Byte Size Dev [*Starting to make the VGA Driver*](https://youtu.be/KK0hvEQ8Fo0)
