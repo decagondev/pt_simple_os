@@ -1,7 +1,16 @@
 #include "vga.h"
 #include "sys.h"
 
+// private method Declerations
+int get_cursor_offset();
+void set_cursor_offset(int offset);
+int print_char(char c, int col, int row, char color);
+int get_offset(int col, int row);
+int get_offset_col(int offset);
+int get_offset_row(int offset);
+
 // VGA Kernel API
+
 // clear the screen (clear_screen())
 void clear_screen(unsigned char color)
 {
@@ -24,17 +33,90 @@ void clear_screen(unsigned char color)
     set_cursor_offset(get_offset(0, 0));
 }
 // print at position (kprint_at_pos())
-void kprint_at_pos(char *message, int col, int row)
+void kprint_at_pos(char *message, int col, int row, char color)
 {
+    int offset;
+
+    // check if col and row are not negative
+    if (col >= 0 && row >= 0)
+    {
+        offset = get_offset(col, row);
+    }
+    else
+    {
+        offset = get_cursor_offset();
+        row = get_offset_row(offset);
+        col = get_offset_col(offset);
+    }
+
+    // loop over all chars in the message
+    // set a zero index
+    int i = 0;
+
+    // while the message at i is not zero
+    while (message[i] != 0)
+    {
+        offset = print_char(message[i++], col, row, color);
+
+        row = get_offset_row(offset);
+        col = get_offset_col(offset);
+    }
 
 }
 // print a message (kprint())
-void kprint(char *message)
+void kprint(char *message, char color)
 {
-
+    kprint_at_pos(message, -1, -1, color);
 }
 
 // private helper functions
+
+// print a single char to the screen buffer
+int print_char(char c, int col, int row, char color)
+{
+    // make a ref to the video ram
+    unsigned char *screen_buffer = (unsigned char *) VGA_ADDRESS;
+
+    // check if a color was passed in
+    if (!color) 
+    {
+        color = WHITE_ON_BLACK;
+    }
+
+    // check if coords are in range
+    if (col >= MAX_COLS || row >= MAX_ROWS)
+    {
+        return get_offset(col, row);
+    }
+
+    int offset;
+
+    if (col >= 0 && row >= 0)
+    {
+        offset = get_offset(col, row);
+    }
+    else
+    {
+        offset = get_cursor_offset();
+    }
+
+
+    // newline character
+    if (c == '\n')
+    {
+        row = get_offset_row(offset);
+        offset = get_offset(0, row + 1);
+    }
+    else // to print other chars
+    {
+        screen_buffer[offset] = c;
+        screen_buffer[offset + 1] = color;
+        offset += 2;
+    }
+
+    set_cursor_offset(offset);
+    return offset;
+}
 
 // get offset (col and row)
 int get_offset(int col, int row) 

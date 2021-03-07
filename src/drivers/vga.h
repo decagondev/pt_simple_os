@@ -18,7 +18,7 @@
 // clear the screen (clear_screen())
 void clear_screen(unsigned char color);
 // print at position (kprint_at_pos())
-void kprint_at_pos(char *message, int col, int row);
+void kprint_at_pos(char *message, int col, int row, char color);
 // print a message (kprint())
-void kprint(char *message);
+void kprint(char *message, char color);
 
