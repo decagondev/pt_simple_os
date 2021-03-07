@@ -32,7 +32,7 @@ load_kernel:
     call println
 
     mov bx, KERNEL_OFFSET ; read from disk and store in 0x1000
-    mov dh, 1 ; this will grow bigger as our codebase does
+    mov dh, 2 ; this will grow bigger as our codebase does
     mov dl, [BOOT_DRIVE]
     call disk_load
     popa
