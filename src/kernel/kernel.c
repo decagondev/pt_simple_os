@@ -1,4 +1,5 @@
 #include "../drivers/vga.h"
+#include "utils.h"
 
 
 char output_char();
@@ -13,7 +14,12 @@ void main() {
     // somefunction(); // from Assembly
     // char x = output_char(); // from rust
     char* my_string = output_str(); // from C++
-    kprint_at_pos(my_string, 4, 4, 0x60);
+    char* original_string = "This is a copy!\n";
+    char* my_empty_string;
+    mem_copy(original_string, my_empty_string, 17);
+
+
+    kprint_at_pos(my_empty_string, 4, 4, 0x60);
     // *graphic_mem = x;
     // int j = 0;
     // for (int i = 2; i < 36; i += 2) {
