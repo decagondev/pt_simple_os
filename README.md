@@ -19,3 +19,4 @@ Byte Size Dev [*Full Playlist*](https://www.youtube.com/playlist?list=PLrljgCnEx
 - Byte Size Dev [*Fixing Typo & Add Make File Rules*](https://youtu.be/OSSdmJiAA6E)
 - Byte Size Dev [*Starting to make the VGA Driver*](https://youtu.be/KK0hvEQ8Fo0)
 - Byte Size Dev [*Let's code the K Print's*](https://youtu.be/vtlTsfzHG8E)
+- Byte Size Dev [*Let's Make some Utility Functions*](https://youtu.be/y6__xuNz0NI)
