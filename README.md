@@ -1,6 +1,8 @@
 # PT Simple OS
 here we will structure a simple operating system project to help show how you might move forward with a medium project such as this one.
 
+**It has been a while since I updated this. Let me know if anyone is interested in having more of this sort of content this year**
+
 ## The videos to accompany this repo are here 
 *(this will be the code ones so remember to get the most out of this do look at the playlist in order)*
 
