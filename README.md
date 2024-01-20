@@ -22,3 +22,5 @@ Byte Size Dev [*Full Playlist*](https://www.youtube.com/playlist?list=PLrljgCnEx
 - Byte Size Dev [*Starting to make the VGA Driver*](https://youtu.be/KK0hvEQ8Fo0)
 - Byte Size Dev [*Let's code the K Print's*](https://youtu.be/vtlTsfzHG8E)
 - Byte Size Dev [*Let's Make some Utility Functions*](https://youtu.be/y6__xuNz0NI)
+
+**Let me know if it is worth reupping this and remaking it for 2024**
